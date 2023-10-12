@@ -9,11 +9,10 @@ set(SOURCES src/main.cpp)
 project(gltest LANGUAGES CXX)
 
 find_package(SDL2 REQUIRED)
-include_directories(game ${SDL2_INCLUDE_DIRS})
-link_libraries(${SDL2_LIBRARIES})
-
 find_package(GLEW REQUIRED)
-include_directories(${GLEW_INCLUDE_DIRS})
-link_libraries(${GLEW_LIBRARIES})
+find_package(OpenGL REQUIRED)
+
+link_libraries(${SDL2_LIBRARIES} ${GLEW_LIBRARIES} ${OPENGL_LIBRARIES})
+include_directories(game ${GLEW_INCLUDE_DIRS} ${OPENGL_INCLUDE_DIRS} ${SDL2_INCLUDE_DIRS})
 
 add_executable(game ${SOURCES})
