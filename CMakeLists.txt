@@ -7,10 +7,11 @@ endif()
 project(gltest LANGUAGES CXX)
 
 find_package(SDL2 REQUIRED)
+find_package(SDL2_IMAGE REQUIRED)
 find_package(GLEW REQUIRED)
 find_package(OpenGL REQUIRED)
 
 add_executable(game ${PROJECT_SOURCE_DIR}/src/main.cpp)
 
-target_link_libraries(game ${SDL2_LIBRARIES} ${GLEW_LIBRARIES} ${OPENGL_LIBRARIES})
-target_include_directories(game PRIVATE ${GLEW_INCLUDE_DIRS} ${OPENGL_INCLUDE_DIRS} ${SDL2_INCLUDE_DIRS} ${PROJECT_SOURCE_DIR}/src)
+target_link_libraries(game ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES} ${GLEW_LIBRARIES} ${OPENGL_LIBRARIES})
+target_include_directories(game PRIVATE ${GLEW_INCLUDE_DIRS} ${OPENGL_INCLUDE_DIRS} ${SDL2_INCLUDE_DIRS} ${SDL2_IMAGE_LIBRARIES} ${PROJECT_SOURCE_DIR}/src)
